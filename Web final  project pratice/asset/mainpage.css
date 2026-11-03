@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.hamburger {
+    display: none
+}
+
+.head-nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.middle {
+    display: flex;           
+    flex-direction: row;     
+    justify-content: center; 
+    align-items: center;     
+    gap: 40px;              
+}
+
+.middle a {
+    font-size: 1.3rem;
+    color: black;     
+    text-decoration: none;   
+    margin: 15px;    
+}
+
+.middle a p {
+    margin: 0;           
+}
+.left button:hover {
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 150px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.right a {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
+#search {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    height: 32px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+
+main {
+    padding-top: 120px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    padding: 20px;
+    
+}
+
+.product {
+    background-color: white;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.05);
+}
+
+.product h2 {
+    font-size: 18px;
+    margin: 10px 0 5px 0;
+}
+
+.product p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.buy-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Courier Prime', monospace;
+    font-weight: bold;
+}
+
+.buy-btn:hover {
+    background-color: red;
+    transform: scale(1.05);
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.size-chart {
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.product:hover .size-chart {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.size-chart p {
+    margin: 4px 0;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+
+     .header{
+        position: static;
+     }
+    .head-nav {
+        display: flex;
+        flex-direction: column;   /* Stack logo + search vertically */
+        align-items: center;      /* Center logo horizontally */
+        position: relative;       /* Allows absolute hamburger */
+    }
+
+    .hamburger {
+        display: flex !important;
+        font-size: 2rem;
+        position: absolute;
+        left: 10px;   /* stays at left */
+        top: 30px;
+        z-index: 10;
+    }
+
+    .logo {
+        width: 120px; /* adjust as needed */
+        margin-top: 10px;
+    }
+
+    .middle {
+        display: none;
+    }
+
+    #search {
+        display: none;
+      
+    }
+     .right a {
+        display: none;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    .product {
+        padding: 15px;
+    }
+
+}
+
